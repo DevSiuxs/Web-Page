@@ -1,0 +1,158 @@
+* {
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("./img/Uranus-Background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(8px);
+    display: flex;
+}
+
+.slide, .log-in {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+}
+.log-in{
+    background-color: rgba(255, 255, 255, 0.1); 
+    border-radius: 10px; /* Bordes redondeados (opcional) */
+
+}
+
+/* Estilos para la imagen centrada */
+.centered-img {
+    width: 10rem;
+}
+.title{
+    color: #8AFF00;
+    font-size: 2rem;
+}
+.title-sub{
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+/* Estilos para el formulario */
+form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    max-width: 400px;
+}
+
+.user  {
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    border-radius: 10px;
+    border: 2px solid #000000;
+    background-color: #0b005d;
+    width: 300px;
+    transition: .9s;
+}
+.user:focus{
+    border: 2px solid #8AFF00;
+    background-color: #0b005d;
+    outline: none;
+}
+.user::placeholder{
+    color: #ffffff;
+}
+.send{
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    border-radius: 10px;
+    border: 2px solid #000000;
+    background-color: #8AFF00;
+    transition: .8s;
+    width: 300px;
+    color: #000000;
+
+ }
+
+ .send:hover{
+    box-shadow:1px 1px 10px 0px #8AFF00;
+    position: relative;
+ }
+ /* Añade esto al final de tu archivo CSS */
+
+/* Media queries para móviles (max-width: 768px) */
+@media screen and (max-width: 768px) {
+    .container {
+        background-color: rgba(255, 255, 255, 0.2);
+        flex-direction: column; /* Apila los elementos verticalmente */
+        backdrop-filter: blur(4px); /* Reduce el blur para mejor rendimiento */
+    }
+
+    .log-in, .slide {
+        width: 100%; /* Ocupa todo el ancho */
+        max-width: 100%; /* Elimina el límite del 50% */
+        padding: 20px;
+    }
+
+    .slide {
+        order: 1; /* Cambia el orden (el formulario primero) */
+    }
+
+    .log-in {
+        order: 2; /* El formulario aparece primero */
+        border-radius: 0rem;
+        outline: none;
+        border: none;
+        background-color: rgba(255, 255, 255, 0.0);
+    }
+
+    form {
+        width: 90%; /* Más ancho en móviles */
+        max-width: 100%; /* Elimina el límite fijo */
+    }
+
+    .user {
+        width: 100%; /* Ocupa todo el ancho disponible */
+    }
+
+    .centered-img {
+        width: 8rem; /* Imagen más pequeña */
+    }
+
+    .title {
+        font-size: 2rem; /* Texto más pequeño */
+        text-align: center;
+        margin-top: 10px;
+    }
+    .title-sub{
+    color: #ffffff;
+    font-size: 1.4rem;
+}
+
+    .send {
+        width: 100%; /* Botón a ancho completo */
+    }
+}
+
+/* Ajustes adicionales para pantallas muy pequeñas */
+@media screen and (max-width: 480px) {
+    .title {
+        font-size: 1.2rem;
+    }
+    
+    .user {
+        padding: 12px; /* Más espacio para dedos */
+    }
+}

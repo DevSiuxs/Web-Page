@@ -8,7 +8,7 @@
 body {
     background-image: url("./img/Uranus-Background.png");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100%;
     background-attachment: fixed;
 }
 
@@ -94,6 +94,12 @@ form {
 
 /* Media queries para móviles (max-width: 768px) */
 @media screen and (max-width: 768px) {
+    body {
+        background-image: url("./img/Uranus-Background.png");
+        background-size: 200% auto; /* La imagen completa se ve sin recortes */
+        background-position: center;
+    }
+    
     .container {
         background-color: rgba(255, 255, 255, 0.2);
         flex-direction: column; /* Apila los elementos verticalmente */

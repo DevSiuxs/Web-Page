@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo de Operación</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0f1c 0%, #1a2332 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 0 10px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #4ade80;
+            letter-spacing: -0.02em;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+            color: #000;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(74, 222, 128, 0.3);
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .metric-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 25px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+            border-color: #4ade80;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #4ade80, #22c55e);
+        }
+
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .metric-title {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        .metric-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #4ade80, #22c55e);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .metric-change {
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .metric-change.positive {
+            color: #4ade80;
+        }
+
+        .metric-change.negative {
+            color: #ef4444;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-top: 15px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4ade80, #22c55e);
+            border-radius: 3px;
+            transition: width 1s ease;
+        }
+
+        .operations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .operation-card {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .operation-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: #4ade80;
+            box-shadow: 0 25px 50px rgba(74, 222, 128, 0.2);
+        }
+
+        .operation-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(74, 222, 128, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(30px, -30px);
+        }
+
+        .operation-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .operation-subtitle {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .operation-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #4ade80;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: #64748b;
+            margin-top: 2px;
+        }
+
+        .chart-container {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .chart-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 25px;
+        }
+
+        .bar-chart {
+            display: flex;
+            align-items: end;
+            gap: 12px;
+            height: 200px;
+            padding: 20px 0;
+        }
+
+        .bar {
+            flex: 1;
+            background: linear-gradient(180deg, #4ade80 0%, #22c55e 100%);
+            border-radius: 6px 6px 0 0;
+            min-height: 20px;
+            position: relative;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .bar:hover {
+            transform: scaleY(1.1);
+            filter: brightness(1.2);
+        }
+
+        .bar::after {
+            content: attr(data-value);
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.8rem;
+            color: #4ade80;
+            font-weight: 600;
+        }
+
+        .bar-labels {
+            display: flex;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .bar-label {
+            flex: 1;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #94a3b8;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        .fade-in:nth-child(1) { animation-delay: 0.1s; }
+        .fade-in:nth-child(2) { animation-delay: 0.2s; }
+        .fade-in:nth-child(3) { animation-delay: 0.3s; }
+        .fade-in:nth-child(4) { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header fade-in">
+            <h1>Operación</h1>
+            <div class="header-actions">
+                <button class="btn btn-secondary">⚙️ Configurar</button>
+                <button class="btn btn-primary">📊 Reportes</button>
+            </div>
+        </div>
+
+        <div class="metrics-grid">
+            <div class="metric-card fade-in">
+                <div class="metric-header">
+                    <span class="metric-title">Servicios Activos</span>
+                    <div class="metric-icon">🏢</div>
+                </div>
+                <div class="metric-value">127</div>
+                <div class="metric-change positive">
+                    ↗️ +12% vs mes anterior
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 78%"></div>
+                </div>
+            </div>
+
+            <div class="metric-card fade-in">
+                <div class="metric-header">
+                    <span class="metric-title">Procesos Completados</span>
+                    <div class="metric-icon">✅</div>
+                </div>
+                <div class="metric-value">89</div>
+                <div class="metric-change positive">
+                    ↗️ +7% esta semana
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 92%"></div>
+                </div>
+            </div>
+
+            <div class="metric-card fade-in">
+                <div class="metric-header">
+                    <span class="metric-title">Eficiencia Global</span>
+                    <div class="metric-icon">⚡</div>
+                </div>
+                <div class="metric-value">94%</div>
+                <div class="metric-change positive">
+                    ↗️ +3% hoy
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 94%"></div>
+                </div>
+            </div>
+
+            <div class="metric-card fade-in">
+                <div class="metric-header">
+                    <span class="metric-title">Alertas Pendientes</span>
+                    <div class="metric-icon">🔔</div>
+                </div>
+                <div class="metric-value">3</div>
+                <div class="metric-change negative">
+                    ↗️ +1 nueva alerta
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 15%"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="operations-grid">
+            <div class="operation-card fade-in">
+                <div class="operation-title">Cafetería</div>
+                <div class="operation-subtitle">Gestión de servicios alimentarios</div>
+                <div class="operation-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">45</div>
+                        <div class="stat-label">Pedidos</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">98%</div>
+                        <div class="stat-label">Satisfacción</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">12</div>
+                        <div class="stat-label">Personal</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="operation-card fade-in">
+                <div class="operation-title">Agencia FU</div>
+                <div class="operation-subtitle">Servicios funerarios especializados</div>
+                <div class="operation-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">23</div>
+                        <div class="stat-label">Servicios</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">95%</div>
+                        <div class="stat-label">Calidad</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">8</div>
+                        <div class="stat-label">Agentes</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="operation-card fade-in">
+                <div class="operation-title">Agencia UVAF</div>
+                <div class="operation-subtitle">Unidad de ventas y asesoría</div>
+                <div class="operation-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">67</div>
+                        <div class="stat-label">Ventas</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">91%</div>
+                        <div class="stat-label">Conversión</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">15</div>
+                        <div class="stat-label">Asesores</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="operation-card fade-in">
+                <div class="operation-title">Agencia Ethernus</div>
+                <div class="operation-subtitle">Servicios premium y VIP</div>
+                <div class="operation-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">34</div>
+                        <div class="stat-label">Clientes VIP</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">99%</div>
+                        <div class="stat-label">Premium</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">6</div>
+                        <div class="stat-label">Especialistas</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="operation-card fade-in">
+                <div class="operation-title">Horno Ethernus</div>
+                <div class="operation-subtitle">Cremación y servicios especiales</div>
+                <div class="operation-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">18</div>
+                        <div class="stat-label">Procesos</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">100%</div>
+                        <div class="stat-label">Seguridad</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">4</div>
+                        <div class="stat-label">Técnicos</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="operation-card fade-in">
+                <div class="operation-title">Proveedores</div>
+                <div class="operation-subtitle">Red de socios operativos</div>
+                <div class="operation-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">156</div>
+                        <div class="stat-label">Activos</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">87%</div>
+                        <div class="stat-label">Rendimiento</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">24</div>
+                        <div class="stat-label">Nuevos</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chart-container fade-in">
+            <div class="chart-title">Rendimiento Mensual por Área</div>
+            <div class="bar-chart">
+                <div class="bar" style="height: 85%" data-value="85"></div>
+                <div class="bar" style="height: 92%" data-value="92"></div>
+                <div class="bar" style="height: 78%" data-value="78"></div>
+                <div class="bar" style="height: 96%" data-value="96"></div>
+                <div class="bar" style="height: 89%" data-value="89"></div>
+                <div class="bar" style="height: 73%" data-value="73"></div>
+            </div>
+            <div class="bar-labels">
+                <div class="bar-label">Cafetería</div>
+                <div class="bar-label">Agencia FU</div>
+                <div class="bar-label">UVAF</div>
+                <div class="bar-label">Ethernus</div>
+                <div class="bar-label">Horno</div>
+                <div class="bar-label">Proveedores</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Animaciones y efectos interactivos
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animar barras de progreso
+            const progressBars = document.querySelectorAll('.progress-fill');
+            progressBars.forEach((bar, index) => {
+                setTimeout(() => {
+                    bar.style.width = bar.style.width;
+                }, index * 200);
+            });
+
+            // Animar barras del gráfico
+            const chartBars = document.querySelectorAll('.bar');
+            chartBars.forEach((bar, index) => {
+                const height = bar.style.height;
+                bar.style.height = '0%';
+                setTimeout(() => {
+                    bar.style.height = height;
+                }, 1000 + (index * 100));
+            });
+
+            // Efecto hover para las tarjetas
+            const cards = document.querySelectorAll('.operation-card, .metric-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.boxShadow = '0 25px 50px rgba(74, 222, 128, 0.3)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.boxShadow = '';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

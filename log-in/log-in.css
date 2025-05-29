@@ -90,9 +90,7 @@ form {
     box-shadow:1px 1px 10px 0px #8AFF00;
     position: relative;
  }
- /* Añade esto al final de tu archivo CSS */
-
-/* Media queries para móviles (max-width: 768px) */
+ 
 @media screen and (max-width: 772px) {
     body {
         background-image: url("./img/Uranus-Background.png");

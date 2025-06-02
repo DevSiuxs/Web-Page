@@ -86,11 +86,12 @@ nav.custom-nav a {
   margin-bottom: 10px;
 }
 .user-custom{
-     padding: 20px;
+  padding: 20px;
   border: 1px solid #15ff00;
   text-align: center;
   border-radius: 1rem;
   background-color: rgba(255, 255, 255, 0.2); 
+  margin-top: 20px;
 }
 .user-custom p{
     text-align: start;
@@ -129,4 +130,39 @@ nav.custom-nav a {
   display: none;
   border-radius: 8px;
   border: 2px solid #15ff00;
+}
+/* MEDIA QUERY PARA DISPOSITIVOS MÓVILES */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 10px;
+  }
+  
+  .user, .info {
+    max-width: 100% !important;
+    width: 100%;
+    margin: 0;
+    padding: 15px;
+  }
+  
+  .info {
+    margin-top: 10px;
+  }
+  
+  /* Ajustes adicionales para mejorar la visualización en móviles */
+  body {
+    padding-top: 56px; /* Reducir espacio para el navbar en móviles */
+  }
+  
+  /* Ajustar el tamaño de la imagen de perfil */
+  #imagePreview {
+    width: 150px;
+    height: 150px;
+  }
+  
+  /* Mejorar el espaciado del texto en móviles */
+  .informacion p, .user-custom p {
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
 }

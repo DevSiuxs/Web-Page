@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Uranus</title>
     <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="left.css">
+    <link rel="stylesheet" href="center.css">
+    <link rel="stylesheet" href="rigth.css">
     <link rel="icon" href="../Assets/icons/Uranus.ico" type="image/x-icon">
 </head>
 
@@ -38,8 +41,126 @@
                 </div>
             </div>
         </div>
+        
+        <!-- Columna 2 - Menú Central -->
+        <div class="sidebar-right">
+            <div class="menu-section">
+    <div class="menu-item">
+        <div class="menu-item-header" onclick="toggleSubmenu(this.parentElement)">
+            <div class="menu-icon">⚙️</div>
+            <span>Administración</span>
+        </div>
+        <div class="submenu">
+            <div class="submenu-item has-submenu">
+                <span>RH</span>
+                <div class="nested-submenu">
+                    <div class="submenu-item">Vacantes</div>
+                    <div class="submenu-item">Expedientes</div>
+                    <div class="submenu-item">Eventos</div>
+                </div>
+            </div>
+            <div class="submenu-item">Tecnología</div>
+            <div class="submenu-item">Jurídico</div>
+            <div class="submenu-item">Finanzas</div>
+        </div>
+    </div>
 
-        <!-- Columna 2 - Contenido Central -->
+
+                <div class="menu-item">
+                    <div class="menu-item-header" onclick="toggleSubmenu(this.parentElement)">
+                        <div class="menu-icon">🎮</div>
+                        <span>Operación</span>
+                    </div>
+                    <div class="submenu">
+                        <div class="submenu-item">FU</div>
+                        <div class="submenu-item">UVAF</div>
+                        <div class="submenu-item">ETHERNUS</div>
+                        <div class="submenu-item">PROCESO</div>
+                        <div class="submenu-item">TERCEROS</div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header" onclick="toggleSubmenu(this.parentElement)">
+                        <div class="menu-icon">🛒</div>
+                        <span>Ventas</span>
+                    </div>
+                    <div class="submenu">
+                        <div class="submenu-item">Documentos</div>
+                        <div class="submenu-item">Convenios</div>
+                        <div class="submenu-item">Expediente</div>
+                        <div class="submenu-item">L. de Prec</div>
+                        <div class="submenu-item">APV</div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header" onclick="toggleSubmenu(this.parentElement)">
+                        <div class="menu-icon">💰</div>
+                        <span>Cobranza</span>
+                    </div>
+                    <div class="submenu">
+                        <div class="submenu-item">Agenda</div>
+                        <div class="submenu-item">Cobrar</div>
+                        <div class="submenu-item">Semáforo</div>
+                        <div class="submenu-item">S. Pagos</div>
+                        <div class="submenu-item">Auditoría</div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header" onclick="toggleSubmenu(this.parentElement)">
+                        <div class="menu-icon">👥</div>
+                        <span>Clientes</span>
+                    </div>
+                    <div class="submenu">
+                        <div class="submenu-item">Tec. Fun.</div>
+                        <div class="submenu-item">Edo. Cuenta</div>
+                        <div class="submenu-item">Docs</div>
+                        <div class="submenu-item">Solicita SF</div>
+                        <div class="submenu-item">Compras</div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header" onclick="toggleSubmenu(this.parentElement)">
+                        <div class="menu-icon">🔧</div>
+                        <span>Mantenimiento</span>
+                    </div>
+                    <div class="submenu">
+                        <div class="submenu-item">Vehículos</div>
+                        <div class="submenu-item">Instalaciones</div>
+                        <div class="submenu-item">Almacén</div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header" onclick="toggleSubmenu(this.parentElement)">
+                        <div class="menu-icon">🏭</div>
+                        <span>Manufactura</span>
+                    </div>
+                    <div class="submenu">
+                        <div class="submenu-item">Cafetería</div>
+                        <div class="submenu-item">Florería</div>
+                        <div class="submenu-item">Comedor</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bottom-cards">
+                <div class="bottom-card">
+                    <div style="font-weight: bold;">Folios SF</div>
+                </div>
+                <div class="bottom-card">
+                    <div style="font-weight: bold;">Lista Precios</div>
+                </div>
+                <div class="bottom-card">
+                    <div style="font-weight: bold;">Edo. Cuenta</div>
+                </div>
+            </div>
+        </div>
+
+         <!-- Columna 3 - Contenido Lateral Derecho -->
         <div class="main-content">
             <div class="card">
                 <div class="card-header">
@@ -176,115 +297,6 @@
             </div>
         </div>
 
-        <!-- Columna 3 - Menú Lateral Derecho -->
-        <div class="sidebar-right">
-            <div class="menu-section">
-                <div class="menu-item">
-                    <div class="menu-item-header" onclick="toggleSubmenu(this.parentElement)">
-                        <div class="menu-icon">⚙️</div>
-                        <span>Administración</span>
-                    </div>
-                    <div class="submenu">
-                        <div class="submenu-item">RH</div>
-                        <div class="submenu-item">Tecnología</div>
-                        <div class="submenu-item">Jurídico</div>
-                        <div class="submenu-item">Finanzas</div>
-                    </div>
-                </div>
-
-                <div class="menu-item">
-                    <div class="menu-item-header" onclick="toggleSubmenu(this.parentElement)">
-                        <div class="menu-icon">🎮</div>
-                        <span>Operación</span>
-                    </div>
-                    <div class="submenu">
-                        <div class="submenu-item">FU</div>
-                        <div class="submenu-item">UVAF</div>
-                        <div class="submenu-item">ETHERNUS</div>
-                        <div class="submenu-item">PROCESO</div>
-                        <div class="submenu-item">TERCEROS</div>
-                    </div>
-                </div>
-
-                <div class="menu-item">
-                    <div class="menu-item-header" onclick="toggleSubmenu(this.parentElement)">
-                        <div class="menu-icon">🛒</div>
-                        <span>Ventas</span>
-                    </div>
-                    <div class="submenu">
-                        <div class="submenu-item">Documentos</div>
-                        <div class="submenu-item">Convenios</div>
-                        <div class="submenu-item">Expediente</div>
-                        <div class="submenu-item">L. de Prec</div>
-                        <div class="submenu-item">APV</div>
-                    </div>
-                </div>
-
-                <div class="menu-item">
-                    <div class="menu-item-header" onclick="toggleSubmenu(this.parentElement)">
-                        <div class="menu-icon">💰</div>
-                        <span>Cobranza</span>
-                    </div>
-                    <div class="submenu">
-                        <div class="submenu-item">Agenda</div>
-                        <div class="submenu-item">Cobrar</div>
-                        <div class="submenu-item">Semáforo</div>
-                        <div class="submenu-item">S. Pagos</div>
-                        <div class="submenu-item">Auditoría</div>
-                    </div>
-                </div>
-
-                <div class="menu-item">
-                    <div class="menu-item-header" onclick="toggleSubmenu(this.parentElement)">
-                        <div class="menu-icon">👥</div>
-                        <span>Clientes</span>
-                    </div>
-                    <div class="submenu">
-                        <div class="submenu-item">Tec. Fun.</div>
-                        <div class="submenu-item">Edo. Cuenta</div>
-                        <div class="submenu-item">Docs</div>
-                        <div class="submenu-item">Solicita SF</div>
-                        <div class="submenu-item">Compras</div>
-                    </div>
-                </div>
-
-                <div class="menu-item">
-                    <div class="menu-item-header" onclick="toggleSubmenu(this.parentElement)">
-                        <div class="menu-icon">🔧</div>
-                        <span>Mantenimiento</span>
-                    </div>
-                    <div class="submenu">
-                        <div class="submenu-item">Vehículos</div>
-                        <div class="submenu-item">Instalaciones</div>
-                        <div class="submenu-item">Almacén</div>
-                    </div>
-                </div>
-
-                <div class="menu-item">
-                    <div class="menu-item-header" onclick="toggleSubmenu(this.parentElement)">
-                        <div class="menu-icon">🏭</div>
-                        <span>Manufactura</span>
-                    </div>
-                    <div class="submenu">
-                        <div class="submenu-item">Cafetería</div>
-                        <div class="submenu-item">Florería</div>
-                        <div class="submenu-item">Comedor</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bottom-cards">
-                <div class="bottom-card">
-                    <div style="font-weight: bold;">Folios SF</div>
-                </div>
-                <div class="bottom-card">
-                    <div style="font-weight: bold;">Lista Precios</div>
-                </div>
-                <div class="bottom-card">
-                    <div style="font-weight: bold;">Edo. Cuenta</div>
-                </div>
-            </div>
-        </div>
     </div>
 
     <script>
@@ -294,17 +306,17 @@
         }
 
         function toggleSubmenu(menuItem) {
-            // Cerrar todos los demás submenús primero
-            const allMenuItems = document.querySelectorAll('.menu-item');
-            allMenuItems.forEach(item => {
-                if (item !== menuItem) {
-                    item.classList.remove('active');
-                }
-            });
-            
-            // Toggle el submenú actual
-            menuItem.classList.toggle('active');
+    // Cerrar todos los demás submenús primero
+    const allMenuItems = document.querySelectorAll('.menu-item');
+    allMenuItems.forEach(item => {
+        if (item !== menuItem && !item.contains(event.target.closest('.submenu-item.has-submenu'))) {
+            item.classList.remove('active');
         }
+    });
+    
+    // Toggle el submenú actual
+    menuItem.classList.toggle('active');
+}
 
         function updateTime() {
             const now = new Date();

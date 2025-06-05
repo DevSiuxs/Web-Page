@@ -78,8 +78,10 @@
         }
 
         .status-dot.green { background: #4CAF50; }
-        .status-dot.yellow { background: #FFC107; }
+        .status-dot.yellow { background: #FFF702; }
         .status-dot.red { background: #F44336; }
+        .status-dot.blue { background: #02ABFF; }
+        .status-dot.orange { background: #FFBC02; }
 
         .time-card {
             background: rgba(255, 255, 255, 0.1);
@@ -458,6 +460,10 @@
             .dashboard {
                 padding: 10px;
                 gap: 10px;
+                background-image: url("../Assets/images/Uranus-Background.png");
+                background-size: 200% auto; /* La imagen completa se ve sin recortes */
+                background-position: center;
+                background-color: rgba(4 5 9);
             }
             
             .sidebar-left {

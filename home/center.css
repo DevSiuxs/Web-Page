@@ -20,9 +20,9 @@
         }
 
         .menu-item {
-            position: relative;
-            margin-bottom: 10px;
-        }
+    position: relative;
+    margin-bottom: 10px;
+}
 
         .menu-item-header {
             display: flex;
@@ -37,10 +37,10 @@
         }
 
         .menu-item-header:hover {
-            background: rgba(76, 175, 80, 0.2);
-            border-color: rgba(76, 175, 80, 0.3);
-            transform: translateX(3px);
-        }
+    background: rgba(76, 175, 80, 0.2);
+    border-color: rgba(76, 175, 80, 0.3);
+    transform: translateX(3px);
+}
 
         .menu-item.active .menu-item-header {
             background: rgba(76, 175, 80, 0.3);
@@ -58,19 +58,19 @@
             font-size: 1rem;
         }
 
-        .submenu {
-            max-height: 0;
-            overflow: hidden;
-            transition: all .7s cubic-bezier(0.4, 0, 0.2, 1);
-            background: rgba(76, 175, 80, 0.1);
-            border-radius: 8px;
-            margin-top: 5px;
-            border: 1px solid rgba(76, 175, 80, 0.2);
-            opacity: 0;
-        }
+       .submenu {
+    max-height: 1200px !important;
+    overflow: visible;
+    padding: 10px !important;
+    opacity: 1 !important;
+    background: rgba(76, 175, 80, 0.1);
+    border-radius: 8px;
+    margin-top: 8px;
+    border: 1px solid rgba(76, 175, 80, 0.2);
+}
 
         .menu-item.active .submenu {
-            max-height: 300px;
+            max-height: 1200px;
             opacity: 1;
             padding: 10px;
         }
@@ -101,9 +101,9 @@
 }
 
 .nested-submenu {
-    max-height: 0;
-    overflow: hidden;
-    transition: all 1s ease;
+    max-height: 200px !important;
+    overflow: visible;
+    padding: 5px 0 5px 15px !important;
     background: rgba(76, 175, 80, 0.15);
     border-radius: 8px;
     margin: 8px 0;

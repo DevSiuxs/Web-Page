@@ -1,0 +1,178 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('../Assets/images/Uranus-Background.png'); /* Coloca la ruta de tu imagen de fondo */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;            min-height: 100vh;
+            color: white;
+            overflow-x: hidden;
+            /* display: flex;
+            align-items: center;
+            justify-content: center; */
+        }
+        .dashboard {
+            display: grid;
+             grid-template-columns: 250px minmax(300px, 1fr) 400px;
+            min-height: 100vh;
+            gap: 20px;
+            padding: 20px;
+            backdrop-filter: blur(8px);
+        }      
+
+        /* Desktop hover effects */
+        @media (min-width: 1201px) {
+            .menu-item:hover .submenu {
+                max-height: 300px;
+                opacity: 1;
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .sidebar-left {
+                grid-template-columns: 1fr 1fr 1fr;
+                display: grid;
+                gap: 15px;
+            }
+            
+            .bottom-cards {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .dashboard {
+                padding: 10px;
+                gap: 10px;
+                background-image: url("../Assets/images/Uranus-Background.png");
+                background-size: 200% auto; /* La imagen completa se ve sin recortes */
+                background-position: center;
+                background-color: rgba(4 5 9);
+            }
+            
+            .sidebar-left {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            
+            .card {
+                padding: 15px;
+            }
+            
+            .card-stats {
+                flex-direction: row;
+                justify-content: space-around;
+                gap: 15px;
+                flex-wrap: wrap;
+            }
+            
+            .stat-item {
+                min-width: 80px;
+                flex: 1;
+            }
+            
+            .menu-section {
+                padding: 15px;
+            }
+            
+            .menu-item-header {
+                padding: 15px 12px;
+                gap: 12px;
+            }
+            
+            .submenu-item {
+                padding: 12px 15px;
+                text-align: left;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            .submenu-item:last-child {
+                border-bottom: none;
+            }
+            
+            .submenu-item:hover {
+                transform: none;
+                padding-left: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .dashboard {
+                padding: 8px;
+                gap: 8px;
+            }
+            
+            .card {
+                padding: 12px;
+            }
+            
+            .card-stats {
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .stat-item {
+                flex: 1;
+                min-width: 60px;
+            }
+            
+            .stat-value {
+                font-size: 1.2rem;
+            }
+            
+            .stat-label {
+                font-size: 0.8rem;
+            }
+            
+            .bottom-cards {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+            
+            .logo h1 {
+                font-size: 1.8rem;
+            }
+            
+            .menu-title {
+                font-size: 1rem;
+            }
+            
+            .menu-item-header {
+                padding: 12px 10px;
+                gap: 10px;
+            }
+            
+            .menu-icon {
+                width: 28px;
+                height: 28px;
+                font-size: 0.9rem;
+            }
+            
+            .card-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .card-header > div {
+                align-self: flex-end;
+            }
+            
+            .evaluation-badges {
+                justify-content: flex-start;
+                margin-top: 10px;
+            }
+        }

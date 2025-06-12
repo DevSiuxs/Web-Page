@@ -48,19 +48,16 @@
         </div>
       </div>
 
-      <!-- Columna 2 - Menú Central -->
+     <!-- Columna 2 - Menú Central -->
       <div class="sidebar-right">
         <div class="menu-section">
           <div class="menu-item">
-            <div
-              class="menu-item-header"
-              onclick="toggleSubmenu(this.parentElement)"
-            >
+            <div class="menu-item-header" onclick="toggleSubmenu(this.parentElement)">
               <div class="menu-icon">⚙️</div>
               <span>Administración</span>
             </div>
             <div class="submenu">
-              <div class="submenu-item has-submenu">
+              <div class="submenu-item has-submenu" onclick="toggleNestedSubmenu(this)">
                 <span>RH</span>
                 <div class="nested-submenu">
                   <div class="submenu-item">Vacantes</div>
@@ -68,7 +65,7 @@
                   <div class="submenu-item">Eventos</div>
                 </div>
               </div>
-              <div class="submenu-item has-submenu">
+              <div class="submenu-item has-submenu" onclick="toggleNestedSubmenu(this)">
                 <span>TECNOLOGIA</span>
                 <div class="nested-submenu">
                   <div class="submenu-item">Funeraria</div>
@@ -76,7 +73,7 @@
                   <div class="submenu-item">Soporte</div>
                 </div>
               </div>
-              <div class="submenu-item has-submenu">
+              <div class="submenu-item has-submenu" onclick="toggleNestedSubmenu(this)">
                 <span>JURIDICO</span>
                 <div class="nested-submenu">
                   <div class="submenu-item">Horno</div>
@@ -84,7 +81,7 @@
                   <div class="submenu-item">Doc Legales</div>
                 </div>
               </div>
-              <div class="submenu-item has-submenu">
+              <div class="submenu-item has-submenu" onclick="toggleNestedSubmenu(this)">
                 <span>FINANZAS</span>
                 <div class="nested-submenu">
                   <div class="submenu-item">Compras</div>
@@ -96,15 +93,12 @@
           </div>
 
           <div class="menu-item">
-            <div
-              class="menu-item-header"
-              onclick="toggleSubmenu(this.parentElement)"
-            >
+            <div class="menu-item-header" onclick="toggleSubmenu(this.parentElement)">
               <div class="menu-icon">🎮</div>
               <span>Operación</span>
             </div>
             <div class="submenu">
-              <div class="submenu-item has-submenu">
+              <div class="submenu-item has-submenu" onclick="toggleNestedSubmenu(this)">
                 <span>FU UVAF ETERNUS</span>
                 <div class="nested-submenu">
                   <div class="submenu-item">PPTO</div>
@@ -115,7 +109,7 @@
               </div>
               <div class="submenu-item">SEMAFOROS</div>
               <div class="submenu-item">PROCESOS</div>
-              <div class="submenu-item has-submenu">
+              <div class="submenu-item has-submenu" onclick="toggleNestedSubmenu(this)">
                 <span>3EROS</span>
                 <div class="nested-submenu">
                   <div class="submenu-item">CMDS</div>
@@ -127,26 +121,20 @@
           </div>
 
           <div class="menu-item">
-            <div
-              class="menu-item-header"
-              onclick="toggleSubmenu(this.parentElement)"
-            >
+            <div class="menu-item-header" onclick="toggleSubmenu(this.parentElement)">
               <div class="menu-icon">🛒</div>
               <span>Ventas</span>
             </div>
             <div class="submenu">
-              <div class="submenu-item has-submenu">
+              <div class="submenu-item has-submenu" onclick="toggleNestedSubmenu(this)">
                 <span>SOL.CTOS</span>
                 <div class="nested-submenu">
                   <div class="submenu-item">SAF</div>
                   <div class="submenu-item">PA</div>
                 </div>
               </div>
-
               <div class="submenu-item">L. de Prec</div>
-                
-               <div class="submenu">
-              <div class="submenu-item has-submenu">
+              <div class="submenu-item has-submenu" onclick="toggleNestedSubmenu(this)">
                 <span>APV</span>
                 <div class="nested-submenu">
                   <div class="submenu-item">DATOS</div>
@@ -154,16 +142,11 @@
                   <div class="submenu-item">COMIS</div>
                 </div>
               </div>
-
-
             </div>
           </div>
 
           <div class="menu-item">
-            <div
-              class="menu-item-header"
-              onclick="toggleSubmenu(this.parentElement)"
-            >
+            <div class="menu-item-header" onclick="toggleSubmenu(this.parentElement)">
               <div class="menu-icon">💰</div>
               <span>Cobranza</span>
             </div>
@@ -177,46 +160,39 @@
           </div>
 
           <div class="menu-item">
-  <div class="menu-item-header">
-    <div class="menu-icon">👥</div>
-    <span>Clientes</span>
-  </div>
-  <div class="submenu">
-    <div class="submenu-item has-submenu">
-      <span>SOL.CTOS</span>
-      <div class="nested-submenu">
-        <div class="submenu-item">SAF</div>
-        <div class="submenu-item">PA</div>
-        <div class="submenu-item">FLORES</div>
-      </div>
-    </div>
-    
-    <div class="submenu-item has-submenu">
-      <span>TEC FUN</span>
-      <div class="nested-submenu">
-        <div class="submenu-item">OBITUR</div>
-        <div class="submenu-item">L.DE TIEMPO</div>
-        <div class="submenu-item">L.DE CONDOL</div>
-      </div>
-    </div>
-    
-    <div class="submenu-item has-submenu">
-      <span>EDO CTA</span>
-      <div class="nested-submenu">
-        <div class="submenu-item">PAGO</div>
-        <div class="submenu-item">EDO CTA</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-</div>
+            <div class="menu-item-header" onclick="toggleSubmenu(this.parentElement)">
+              <div class="menu-icon">👥</div>
+              <span>Clientes</span>
+            </div>
+            <div class="submenu">
+              <div class="submenu-item has-submenu" onclick="toggleNestedSubmenu(this)">
+                <span>SOL.CTOS</span>
+                <div class="nested-submenu">
+                  <div class="submenu-item">SAF</div>
+                  <div class="submenu-item">PA</div>
+                  <div class="submenu-item">FLORES</div>
+                </div>
+              </div>
+              <div class="submenu-item has-submenu" onclick="toggleNestedSubmenu(this)">
+                <span>TEC FUN</span>
+                <div class="nested-submenu">
+                  <div class="submenu-item">OBITUR</div>
+                  <div class="submenu-item">L.DE TIEMPO</div>
+                  <div class="submenu-item">L.DE CONDOL</div>
+                </div>
+              </div>
+              <div class="submenu-item has-submenu" onclick="toggleNestedSubmenu(this)">
+                <span>EDO CTA</span>
+                <div class="nested-submenu">
+                  <div class="submenu-item">PAGO</div>
+                  <div class="submenu-item">EDO CTA</div>
+                </div>
+              </div>
+            </div>
+          </div>
 
           <div class="menu-item">
-            <div
-              class="menu-item-header"
-              onclick="toggleSubmenu(this.parentElement)"
-            >
+            <div class="menu-item-header" onclick="toggleSubmenu(this.parentElement)">
               <div class="menu-icon">🔧</div>
               <span>Mantenimiento</span>
             </div>
@@ -228,10 +204,7 @@
           </div>
 
           <div class="menu-item">
-            <div
-              class="menu-item-header"
-              onclick="toggleSubmenu(this.parentElement)"
-            >
+            <div class="menu-item-header" onclick="toggleSubmenu(this.parentElement)">
               <div class="menu-icon">🏭</div>
               <span>Manufactura</span>
             </div>

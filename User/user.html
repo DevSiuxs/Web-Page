@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Usuario</title>
+    <!-- Materialize CSS (¡IMPORTANTE!) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <!-- Estilos -->
+    <link rel="stylesheet" href="user.css" />
+    <link rel="icon" href="../img/Uranus.ico" type="image/x-icon" />
+    <!-- Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="custom-nav">
+      <div class="nav-wrapper">
+        <ul class="left-group">
+          <li>
+            <a href="../home/home.html"><i class="material-icons">home</i></a>
+          </li>
+        </ul>
+        <ul class="right-group">
+          <li>
+            <a href="#!"><i class="material-icons">notifications</i></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="user">
+        <div class="upload-container">
+          <h2>Trabajador</h2>
+          <!-- Input para subir la imagen -->
+          <input
+            placeholder=""
+            type="file"
+            id="imageUpload"
+            accept="image/*"
+            onchange="previewImage(this)"
+          />
+
+          <!-- Vista previa de la imagen -->
+          <img id="imagePreview" alt="Vista previa" />
+        </div>
+        <div class="user-custom">
+          <p><span class="resalt">Nombre:</span>Nombre</p>
+          <p><span class="resalt">Fecha:</span>Fecha</p>
+          <p><span class="resalt">Genero:</span>Genero</p>
+          <p><span class="resalt">Nacionalidad:</span>Nacionalidad</p>
+          <p><span class="resalt">Curp:</span>Curp</p>
+        </div>
+      </div>
+<!-- SECOND SECTION DIV USER -->
+      <div class="info">
+        <div class="informacion">
+          <p>
+            <span class="resalt">Gustos:</span> Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Quae similique iusto consequatur quis
+            impedit temporibus cupiditate officia beatae assumenda, veritatis
+            dicta quibusdam, aut, adipisci quaerat harum nihil dolorum explicabo
+            obcaecati.
+          </p>
+          <p>
+            <span class="resalt">Musica:</span> Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Aliquam sint perferendis atque minus
+            esse aspernatur architecto, earum illum. Exercitationem ducimus
+            iusto quaerat dolorem, vel laudantium nemo excepturi voluptatum
+            inventore. Labore?
+          </p>
+          <p>
+            <span class="resalt">Deporte:</span> Lorem, ipsum dolor sit amet
+            consectetur adipisicing elit. Doloremque eum aliquam velit ea
+            doloribus qui, dicta deleniti repellat facere, excepturi id labore
+            soluta maiores nam sequi, in voluptatem beatae nesciunt.
+          </p>
+          <p>
+            <span class="resalt">Hobbies:</span>Lorem, ipsum dolor sit amet
+            consectetur adipisicing elit. Est assumenda placeat voluptatem ad ea
+            nam eum? Quod placeat maxime omnis distinctio voluptates,
+            perferendis aspernatur nostrum, totam, sit expedita dicta ducimus.
+          </p>
+          <p>
+            <span class="resalt">Equipo:</span>Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Debitis blanditiis, delectus cumque
+            hic tempore eos illum. Cupiditate doloremque provident perferendis
+            voluptatum ipsum magni et similique, fuga blanditiis autem, tenetur
+            eum!
+          </p>
+          <p>
+            <span class="resalt">Pensamiento:</span>Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Adipisci ipsa amet incidunt cupiditate
+            saepe dolorem porro natus rem voluptatum a libero, delectus sequi
+            repudiandae! Similique voluptatum voluptate error quis modi!
+          </p>
+        </div>
+      </div>
+    </div>
+    <script>
+      document
+        .getElementById("imageUpload")
+        .addEventListener("change", function (e) {
+          const file = e.target.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = function (event) {
+              const preview = document.getElementById("imagePreview");
+              preview.src = event.target.result;
+              preview.style.display = "block";
+              preview.style.width = "200px";
+              preview.style.height = "200px";
+              preview.style.margin = "auto";
+              preview.style.borderRadius = "50%";
+            };
+            reader.readAsDataURL(file);
+          }
+        });
+    </script>
+  </body>
+</html>

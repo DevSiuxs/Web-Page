@@ -2,10 +2,13 @@
 
         /* Columna 1 - Sidebar izquierda */
         .sidebar-left {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 250px; /* Ancho mínimo */
+    padding: 15px;
+}
+
 
         .logo {
             background: rgba(255, 255, 255, 0.1);
@@ -75,6 +78,7 @@
             font-size: 1.2rem;
             font-weight: bold;
         }
+        
 
         .btn-view {
             background: #4CAF50;
@@ -93,3 +97,33 @@
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
         }
+@media (max-width: 768px) {
+    .dashboard {
+        flex-direction:column;    
+    }
+    
+    .sidebar-left {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .logo, .user-data, .time-card {
+       margin: auto;
+    }
+    
+    .centered-img {
+        max-width: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar-left {
+        flex-direction: column;
+    }
+    
+    .logo, .user-data, .time-card {
+        flex: 1 1 auto;
+    }
+}

@@ -108,6 +108,7 @@ body {
     }
     
     .logo, .user-data, .time-card {
-        flex: 1 1 100%;
+        flex: 1 1 50%;
     }
 }
+

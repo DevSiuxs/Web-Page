@@ -1,236 +1,226 @@
-/* rh_periodos.css */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f5f7fa;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
 /* Navbar mejorado */
-nav {
-    background-color: rgba(200, 255, 200, .80);
-    padding: 15px 0;
-    width: 100%;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-nav ul {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-nav ul li {
-    list-style: none;
-}
-
-nav ul li img {
-    height: 80px;
-    width: auto;
-}
-
-
-.logo-container {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.logo {
-    height: 50px;
-    width: auto;
-}
-
-.system-name {
-    font-size: 1.2rem;
-    font-weight: 500;
-}
-
-.user-info {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-}
-
-.user-icon {
-    font-size: 1.5rem;
-}
-
-.username {
-    font-weight: 500;
-}
-
-.dropdown-icon {
-    font-size: 0.8rem;
-}
-
-/* Contenido principal */
-main {
-    flex: 1;
-    padding: 30px 20px;
-    display: flex;
-    justify-content: center;
-}
-
-.periodos-container {
-    background-color: white;
-    border-radius: 8px;
-    padding: 30px;
-    width: 100%;
-    max-width: 900px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-
-.header-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-.header-section h1 {
-    color: #2c3e50;
-    margin: 0;
-    font-size: 1.8rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.controls {
-    display: flex;
-    gap: 10px;
-}
-
-.refresh-btn, .print-btn {
-    padding: 8px 15px;
-    background-color: #f8f9fa;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.9rem;
-    transition: all 0.3s;
-}
-
-.refresh-btn:hover, .print-btn:hover {
-    background-color: #e9ecef;
-}
-
-/* Sección de empleados */
-.employee-periods {
-    margin-bottom: 25px;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    overflow: hidden;
-    transition: transform 0.3s;
-}
-
-.employee-periods:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.employee-header {
-    background-color: #3498db;
-    color: white;
-    padding: 15px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.period-info {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    padding: 20px;
-}
-
-.info-item {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.label {
-    font-weight: 600;
-    color: #555;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.value {
-    color: #333;
-    font-size: 1.1rem;
-}
-
-/* Sección liberadas */
-.liberadas-section {
-    margin-top: 40px;
-}
-
-.liberadas-section h2 {
-    color: #2c3e50;
-    font-size: 1.4rem;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.liberadas-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-}
-
-.liberada-item {
-    background-color: #e8f5e9;
-    padding: 15px;
-    border-radius: 8px;
-    text-align: center;
-    font-weight: bold;
-    display: flex;
-    justify-content: space-around;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .period-info {
-        grid-template-columns: 1fr;
-    }
-    
-    .liberadas-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .header-section {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-}
-
-@media (max-width: 480px) {
-    .navbar-container {
-        flex-direction: column;
-        gap: 15px;
-        padding: 15px 0;
-    }
-    
-    .periodos-container {
-        padding: 20px;
-    }
-}
+        nav {
+            background-color: rgba(200, 255, 200, .80);
+            padding: 15px 0;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        nav ul li {
+            list-style: none;
+        }
+        
+        nav ul li img {
+            height: 80px;
+            width: auto;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo {
+            height: 50px;
+            width: auto;
+        }
+        
+        .system-name {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+        
+        .user-icon {
+            font-size: 1.5rem;
+        }
+        
+        .username {
+            font-weight: 500;
+        }
+        
+        .dropdown-icon {
+            font-size: 0.8rem;
+        }
+        
+        /* Contenido principal */
+        main {
+            flex: 1;
+            padding: 30px 20px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .periodos-container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            width: 100%;
+            max-width: 900px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .periodos-container h1 {
+            color: #2c3e50;
+            margin: 0 0 30px;
+            font-size: 1.8rem;
+            text-align: center;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        /* Sección de empleados */
+        .employee-periods {
+            margin-bottom: 25px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            position: relative;
+        }
+        
+        .employee-periods:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .employee-header {
+            background-color: #3498db;
+            color: white;
+            padding: 15px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .period-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            padding: 20px;
+        }
+        
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .label {
+            font-weight: 600;
+            color: #555;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .value {
+            color: #333;
+            font-size: 1.1rem;
+        }
+        
+        /* Botones de acciones */
+        .actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+            padding: 15px;
+            border-top: 1px solid #eee;
+            background-color: #f8f9fa;
+        }
+        
+        .action-btn {
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            outline: none;
+        }
+        
+        .accept-btn {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+        
+        .accept-btn:hover {
+            background-color: #c8e6c9;
+        }
+        
+        .cancel-btn {
+            background-color: #ffebee;
+            color: #c62828;
+        }
+        
+        .cancel-btn:hover {
+            background-color: #ffcdd2;
+        }
+        
+        .action-btn i {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        
+        /* Botón Siguiente */
+        .next-btn {
+            display: block;
+            width: 100%;
+            max-width: 200px;
+            margin: 30px auto 0;
+            padding: 12px 25px;
+            background-color: #3498db;
+            color: white;
+            text-align: center;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .next-btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .period-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-section {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .actions {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .periodos-container {
+                padding: 20px;
+            }
+        }

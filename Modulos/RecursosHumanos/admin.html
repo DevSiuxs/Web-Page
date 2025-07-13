@@ -1,339 +1,145 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Operaticion</title>
-    <link rel="stylesheet" href="admin.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" href="../../../Assets/icons/Uranus.ico" type="image/x-icon">
+  <title>Administración</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #1f2c56;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    h1 {
+      margin-top: 40px;
+      font-size: 2rem;
+      color: #7ED321;
+    }
+
+    .section-buttons, .submenu {
+      display: flex;
+      gap: 15px;
+      margin: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    button {
+      background: #2f3d71;
+      color: white;
+      border: none;
+      padding: 15px 25px;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    button:hover {
+      background: #43589f;
+    }
+
+    .submenu {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .submenu.active {
+      display: flex;
+    }
+
+    .close-btn {
+      margin-top: 10px;
+      background: #8b0000;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <a href="../../home/home.html">
-            <div class="nav-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-                </svg>
-            </div>
-            </a>
-            <div class="nav-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
-                </svg>
-            </div>
-        </div>
+  <h1>Administración</h1>
 
-        <h1 class="title">Administración</h1>
+  <div class="section-buttons">
+    <button onclick="showSubmenu('rh')">RH</button>
+    <button onclick="showSubmenu('juridico')">Jurídico</button>
+    <button onclick="showSubmenu('tecnologia')">Tecnología</button>
+    <button onclick="showSubmenu('finanzas')">Finanzas</button>
+  </div>
 
-        <div class="dashboard-grid">
-            <button class="dashboard-button" onclick="navigateTo('rh')">
-                RH
-            </button>
-            
-            <button class="dashboard-button" onclick="navigateTo('juridico')">
-                Jurídico
-            </button>
-            
-            <button class="dashboard-button" onclick="navigateTo('tecnologia')">
-                Tecnología
-            </button>
-            
-            <button class="dashboard-button" onclick="navigateTo('finanzas')">
-                Finanzas
-            </button>
-        </div>
+  <!-- RH -->
+  <div id="submenu-rh" class="submenu">
+    <button onclick="goTo('vacaciones')">Vacaciones</button>
+    <button onclick="goTo('expedientes')">Expedientes</button>
+    <button onclick="goTo('eventos')">Eventos</button>
+    <button class="close-btn" onclick="hideSubmenus()">Cerrar</button>
+  </div>
 
-        <div class="time-display" id="timeDisplay">
-            00:00<br>00:00
-        </div>
-    </div>
+  <!-- Jurídico -->
+  <div id="submenu-juridico" class="submenu">
+    <button onclick="goTo('horno')">Horno</button>
+    <button onclick="goTo('representaciones')">Representaciones</button>
+    <button onclick="goTo('doclegales')">Doc. Legales</button>
+    <button class="close-btn" onclick="hideSubmenus()">Cerrar</button>
+  </div>
 
-    <!-- Submenús -->
-    <div class="submenu" id="submenu-rh">
-        <div class="submenu-content">
-            <div class="close-btn" onclick="closeSubmenu()">&times;</div>
-            <div class="submenu-header">Recursos Humanos</div>
-            <div class="submenu-grid">
-                <div class="submenu-item" onclick="selectOption('RH', 'Vacaciones')">Vacaciones</div>
-                <div class="submenu-item" onclick="selectOption('RH', 'Expedientes')">Expedientes</div>
-                <div class="submenu-item" onclick="selectOption('RH', 'Eventos')">Eventos</div>
-            </div>
-        </div>
-    </div>
+  <!-- Tecnología -->
+  <div id="submenu-tecnologia" class="submenu">
+    <button onclick="goTo('funeraria')">Funeraria</button>
+    <button onclick="goTo('desaria')">Desar / IA</button>
+    <button onclick="goTo('soporte')">Soporte</button>
+    <button class="close-btn" onclick="hideSubmenus()">Cerrar</button>
+  </div>
 
-    <div class="submenu" id="submenu-tecnologia">
-        <div class="submenu-content">
-            <div class="close-btn" onclick="closeSubmenu()">&times;</div>
-            <div class="submenu-header">Tecnología</div>
-            <div class="submenu-grid">
-                <div class="submenu-item" onclick="selectOption('Tecnología', 'Funeraria')">Funeraria</div>
-                <div class="submenu-item" onclick="selectOption('Tecnología', 'Desar /IA')">Desar /IA</div>
-                <div class="submenu-item" onclick="selectOption('Tecnología', 'Soporte')">Soporte</div>
-            </div>
-        </div>
-    </div>
+  <!-- Finanzas -->
+  <div id="submenu-finanzas" class="submenu">
+    <button onclick="goTo('compras')">Compras</button>
+    <button onclick="goTo('fondeos')">Fondeos</button>
+    <button onclick="goTo('pprov')">P. Prov</button>
+    <button onclick="goTo('gastos')">Gastos</button>
+    <button class="close-btn" onclick="hideSubmenus()">Cerrar</button>
+  </div>
 
-    <div class="submenu" id="submenu-juridico">
-        <div class="submenu-content">
-            <div class="close-btn" onclick="closeSubmenu()">&times;</div>
-            <div class="submenu-header">Jurídico</div>
-            <div class="submenu-grid">
-                <div class="submenu-item" onclick="selectOption('Jurídico', 'Horno')">Horno</div>
-                <div class="submenu-item" onclick="selectOption('Jurídico', 'Representaciones')">Representaciones</div>
-                <div class="submenu-item" onclick="selectOption('Jurídico', 'Doc. Legales')">Doc. Legales</div>
-            </div>
-        </div>
-    </div>
+  <script>
+    function showSubmenu(id) {
+      hideSubmenus();
+      document.getElementById(`submenu-${id}`).classList.add('active');
+    }
 
-    <div class="submenu" id="submenu-finanzas">
-        <div class="submenu-content">
-            <div class="close-btn" onclick="closeSubmenu()">&times;</div>
-            <div class="submenu-header">Finanzas</div>
-            <div class="submenu-grid">
-                <div class="submenu-item" onclick="selectOption('Finanzas', 'Compras')">Compras</div>
-                <div class="submenu-item" onclick="selectOption('Finanzas', 'Fondeos')">Fondeos</div>
-                <div class="submenu-item" onclick="selectOption('Finanzas', 'P. Prov')">P. Prov</div>
-                <div class="submenu-item" onclick="selectOption('Finanzas', 'Gastos')">Gastos</div>
-            </div>
-        </div>
-    </div>
+    function hideSubmenus() {
+      document.querySelectorAll('.submenu').forEach(el => el.classList.remove('active'));
+    }
 
-    <script>
-        // Función para manejar navegación y mostrar submenús
-        function navigateTo(section) {
-            const submenuId = `submenu-${section}`;
-            const submenu = document.getElementById(submenuId);
-            if (submenu) {
-                submenu.classList.add('active');
-                // Prevenir scroll del body
-                document.body.style.overflow = 'hidden';
-            }
-        }
+    function goTo(option) {
+      // Ruta base según tu estructura
+      const rutas = {
+        vacaciones: '../../../User/user.html',
+        expedientes: '#',         // Cambia por tu ruta real
+        eventos: '#',
+        horno: '#',
+        representaciones: '#',
+        doclegales: '#',
+        funeraria: '#',
+        desaria: '#',
+        soporte: '#',
+        compras: '#',
+        fondeos: '#',
+        pprov: '#',
+        gastos: '#',
+      };
 
-        // Función para cerrar submenú
-        function closeSubmenu() {
-            const activeSubmenu = document.querySelector('.submenu.active');
-            if (activeSubmenu) {
-                activeSubmenu.classList.remove('active');
-                // Restaurar scroll del body
-                document.body.style.overflow = 'auto';
-            }
-        }
-
-        // Función para seleccionar opción del submenú
-        function selectOption(module, option) {
-            console.log(`Seleccionado: ${module} - ${option}`);
-            alert(`Accediendo a: ${module} - ${option}`);
-            closeSubmenu();
-        }
-
-        // Cerrar submenú al hacer clic fuera del contenido
-        document.addEventListener('click', function(event) {
-            const activeSubmenu = document.querySelector('.submenu.active');
-            if (activeSubmenu && event.target === activeSubmenu) {
-                closeSubmenu();
-            }
-        });
-
-        // Cerrar submenú con tecla Escape
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeSubmenu();
-            }
-        });
-
-        // Actualizar reloj
-        function updateTime() {
-            const now = new Date();
-            const hours = now.getHours().toString().padStart(2, '0');
-            const minutes = now.getMinutes().toString().padStart(2, '0');
-            const seconds = now.getSeconds().toString().padStart(2, '0');
-            
-            document.getElementById('timeDisplay').innerHTML = 
-                `${hours}:${minutes}<br>${seconds}:00`;
-        }
-
-        // Inicializar reloj
-        updateTime();
-        setInterval(updateTime, 1000);
-
-        // Efectos de interacción adicionales
-        document.querySelectorAll('.dashboard-button').forEach(button => {
-            button.addEventListener('mouseenter', function() {
-                this.style.setProperty('--hover-scale', '1.02');
-            });
-            
-            button.addEventListener('mouseleave', function() {
-                this.style.setProperty('--hover-scale', '1');
-            });
-        });
-
-        // Animaciones para elementos del submenú
-        function animateSubmenuItems() {
-            const items = document.querySelectorAll('.submenu.active .submenu-item');
-            items.forEach((item, index) => {
-                item.style.opacity = '0';
-                item.style.transform = 'translateY(20px)';
-                setTimeout(() => {
-                    item.style.transition = 'all 0.3s ease';
-                    item.style.opacity = '1';
-                    item.style.transform = 'translateY(0)';
-                }, index * 100);
-            });
-        }
-
-        // Funciones táctiles mejoradas para móviles
-        function addTouchSupport() {
-            // Soporte táctil para botones principales
-            document.querySelectorAll('.dashboard-button').forEach(button => {
-                let touchTimeout;
-                
-                button.addEventListener('touchstart', function(e) {
-                    e.preventDefault();
-                    this.style.transform = 'scale(0.98)';
-                    this.style.background = 'rgba(255, 255, 255, 0.15)';
-                    this.style.borderColor = 'rgba(126, 211, 33, 0.5)';
-                    this.style.color = '#7ED321';
-                    
-                    // Feedback háptico si está disponible
-                    if (navigator.vibrate) {
-                        navigator.vibrate(10);
-                    }
-                    
-                    touchTimeout = setTimeout(() => {
-                        this.style.transform = '';
-                        this.style.background = '';
-                        this.style.borderColor = '';
-                        this.style.color = '';
-                    }, 150);
-                });
-                
-                button.addEventListener('touchend', function(e) {
-                    e.preventDefault();
-                    clearTimeout(touchTimeout);
-                    
-                    setTimeout(() => {
-                        this.style.transform = '';
-                        this.style.background = '';
-                        this.style.borderColor = '';
-                        this.style.color = '';
-                    }, 50);
-                    
-                    // Ejecutar la función de navegación
-                    const section = this.textContent.toLowerCase().trim();
-                    navigateTo(section);
-                });
-                
-                button.addEventListener('touchcancel', function() {
-                    clearTimeout(touchTimeout);
-                    this.style.transform = '';
-                    this.style.background = '';
-                    this.style.borderColor = '';
-                    this.style.color = '';
-                });
-            });
-
-            // Soporte táctil para elementos del submenú
-            document.addEventListener('DOMContentLoaded', function() {
-                addSubmenuTouchSupport();
-            });
-        }
-
-        function addSubmenuTouchSupport() {
-            document.querySelectorAll('.submenu-item').forEach(item => {
-                let touchTimeout;
-                
-                item.addEventListener('touchstart', function(e) {
-                    e.preventDefault();
-                    this.style.transform = 'scale(0.98)';
-                    this.style.background = 'rgba(255, 255, 255, 0.15)';
-                    this.style.borderColor = 'rgba(126, 211, 33, 0.5)';
-                    this.style.color = '#7ED321';
-                    
-                    if (navigator.vibrate) {
-                        navigator.vibrate(8);
-                    }
-                    
-                    touchTimeout = setTimeout(() => {
-                        this.style.transform = '';
-                        this.style.background = '';
-                        this.style.borderColor = '';
-                        this.style.color = '';
-                    }, 150);
-                });
-                
-                item.addEventListener('touchend', function(e) {
-                    e.preventDefault();
-                    clearTimeout(touchTimeout);
-                    
-                    setTimeout(() => {
-                        this.style.transform = '';
-                        this.style.background = '';
-                        this.style.borderColor = '';
-                        this.style.color = '';
-                    }, 50);
-                    
-                    // Ejecutar la selección
-                    this.click();
-                });
-                
-                item.addEventListener('touchcancel', function() {
-                    clearTimeout(touchTimeout);
-                    this.style.transform = '';
-                    this.style.background = '';
-                    this.style.borderColor = '';
-                    this.style.color = '';
-                });
-            });
-
-            // Soporte táctil para botón de cerrar
-            document.querySelectorAll('.close-btn').forEach(btn => {
-                let touchTimeout;
-                
-                btn.addEventListener('touchstart', function(e) {
-                    e.preventDefault();
-                    this.style.transform = 'scale(0.95)';
-                    this.style.background = 'rgba(255, 255, 255, 0.2)';
-                    
-                    if (navigator.vibrate) {
-                        navigator.vibrate(10);
-                    }
-                    
-                    touchTimeout = setTimeout(() => {
-                        this.style.transform = '';
-                        this.style.background = '';
-                    }, 150);
-                });
-                
-                btn.addEventListener('touchend', function(e) {
-                    e.preventDefault();
-                    clearTimeout(touchTimeout);
-                    
-                    setTimeout(() => {
-                        this.style.transform = '';
-                        this.style.background = '';
-                    }, 50);
-                    
-                    closeSubmenu();
-                });
-                
-                btn.addEventListener('touchcancel', function() {
-                    clearTimeout(touchTimeout);
-                    this.style.transform = '';
-                    this.style.background = '';
-                });
-            });
-        }
-
-        // Inicializar soporte táctil
-        addTouchSupport();
-
-        // Actualizar soporte táctil cuando se muestren nuevos submenús
-        const originalNavigateTo = navigateTo;
-        navigateTo = function(section) {
-            originalNavigateTo(section);
-            setTimeout(addSubmenuTouchSupport, 200);
-        };
-    </script>
+      const ruta = rutas[option];
+      if (ruta && ruta !== '#') {
+        window.location.href = ruta;
+      } else {
+        alert('Opción en desarrollo.');
+      }
+    }
+  </script>
 </body>
 </html>

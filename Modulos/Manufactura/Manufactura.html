@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manufactura</title>
+    <link rel="stylesheet" href="Manufactura.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="../../home/home.html">
+            <div class="nav-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                </svg>
+            </div>
+            </a>
+            <div class="nav-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
+                </svg>
+            </div>
+        </div>
+
+        <h1 class="title">Manufactura</h1>
+
+        <div class="dashboard-grid">
+            <button class="dashboard-button" onclick="selectOption('Cafetería', 'directo')">
+                Cafetería
+            </button>
+            
+            <button class="dashboard-button" onclick="selectOption('Florería', 'directo')">
+                Florería
+            </button>
+            
+            <button class="dashboard-button" onclick="selectOption('Comedor', 'directo')">
+                Comedor
+            </button>
+
+            
+        </div>
+
+        <div class="time-display" id="timeDisplay">
+            00:00<br>00:00
+        </div>
+    </div>
+
+    <!-- Submenús -->
+
+    <script>
+        // Función para manejar navegación y mostrar submenús
+        function navigateTo(section) {
+            const submenuId = `submenu-${section}`;
+            const submenu = document.getElementById(submenuId);
+            if (submenu) {
+                submenu.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        // Función para cerrar submenú
+        function closeSubmenu() {
+            const activeSubmenu = document.querySelector('.submenu.active');
+            if (activeSubmenu) {
+                activeSubmenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Función para seleccionar opción del submenú
+        function selectOption(module, option) {
+            console.log(`Seleccionado: ${module} - ${option}`);
+            alert(`Accediendo a: ${module} - ${option}`);
+            closeSubmenu();
+        }
+
+        // Resto del código JavaScript permanece igual...
+    </script>
+</body>
+</html>

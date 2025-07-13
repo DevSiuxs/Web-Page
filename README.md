@@ -7,5 +7,7 @@ Sistema Preisa es una plataforma de gestión funeraria diseñada para facilitar 
 
 <p align="center"> <strong style="font-size:30px;">🗓️ log-in responsive</strong> </p> <p align="center"> <img src="https://github.com/user-attachments/assets/f98693eb-ecaa-46ee-a7e4-d491ce10f0d2" alt="FullCalendar Example" width="250"> </p>
 
+<p align="center"> <strong style="font-size:30px;">🏠 Home</strong> </p> <p align="center"> <img src="https://github.com/user-attachments/assets/acf44fdf-793f-4b78-a47c-229ec4615606" alt="FullCalendar Example" width="500"> </p>
+
 
 

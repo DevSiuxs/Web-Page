@@ -2,10 +2,13 @@
 
         /* Columna 1 - Sidebar izquierda */
         .sidebar-left {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 250px; /* Ancho mínimo */
+    padding: 15px;
+}
+
 
         .logo {
             background: rgba(255, 255, 255, 0.1);
@@ -75,6 +78,7 @@
             font-size: 1.2rem;
             font-weight: bold;
         }
+        
 
         .btn-view {
             background: #4CAF50;
@@ -93,3 +97,79 @@
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
         }
+
+
+        /* Cerrar sesion */
+        .logout {
+    margin-top: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.logout-button {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.logout-button img {
+    width: 24px;
+    height: 24px;
+    margin-top: 8px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.logout-button:hover {
+    background-color: #F44336;
+    transform: scale(1.1);
+}
+
+.logout-button:hover::after {
+    content: "Cerrar sesión";
+    position: absolute;
+    top: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 5px 10px;
+    font-size: 0.75rem;
+    border-radius: 5px;
+    white-space: nowrap;
+    z-index: 10;
+}
+@media (max-width: 768px) {
+    .dashboard {
+        flex-direction:column;    
+    }
+    
+    .sidebar-left {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .logo, .user-data, .time-card {
+       margin: auto;
+    }
+    
+    .centered-img {
+        max-width: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar-left {
+        flex-direction: column;
+    }
+    
+    .logo, .user-data, .time-card {
+        flex: 1 1 auto;
+    }
+}

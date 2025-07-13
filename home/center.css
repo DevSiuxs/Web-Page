@@ -20,9 +20,9 @@
         }
 
         .menu-item {
-            position: relative;
-            margin-bottom: 10px;
-        }
+    position: relative;
+    margin-bottom: 10px;
+}
 
         .menu-item-header {
             display: flex;
@@ -31,16 +31,16 @@
             padding: 12px;
             border-radius: 10px;
             cursor: pointer;
-            transition: all 0.8s ease;
+            transition: all 1.8s ease;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .menu-item-header:hover {
-            background: rgba(76, 175, 80, 0.2);
-            border-color: rgba(76, 175, 80, 0.3);
-            transform: translateX(3px);
-        }
+    background: rgba(76, 175, 80, 0.2);
+    border-color: rgba(76, 175, 80, 0.3);
+    transform: translateX(3px);
+}
 
         .menu-item.active .menu-item-header {
             background: rgba(76, 175, 80, 0.3);
@@ -58,19 +58,26 @@
             font-size: 1rem;
         }
 
-        .submenu {
-            max-height: 0;
-            overflow: hidden;
-            transition: all .7s cubic-bezier(0.4, 0, 0.2, 1);
-            background: rgba(76, 175, 80, 0.1);
-            border-radius: 8px;
-            margin-top: 5px;
-            border: 1px solid rgba(76, 175, 80, 0.2);
-            opacity: 0;
-        }
+       .submenu {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    padding: 0;
+    background: rgba(76, 175, 80, 0.1);
+    border-radius: 8px;
+    margin-top: 8px;
+    border: 1px solid rgba(76, 175, 80, 0.2);
+    transition: all 1.4s ease-in-out;
+}
 
         .menu-item.active .submenu {
-            max-height: 300px;
+            max-height: 1500px;
+            opacity: 1;
+            padding: 10px;
+        }
+
+        .menu-item:hover .submenu {
+            max-height: 1200px;
             opacity: 1;
             padding: 10px;
         }
@@ -79,15 +86,15 @@
             padding: 10px 15px;
             border-radius: 6px;
             cursor: pointer;
-            transition: all 0.8s ease;
+            transition: all 1.8s ease;
             margin-bottom: 5px;
             background: rgba(255, 255, 255, 0.05);
         }
 
         .submenu-item:hover {
-            /* background: rgba(76, 175, 80, 0.3); */
-            /* color: #4CAF50; */
-            transform: translateX(5px);
+            background: rgba(76, 175, 80, 0.3);
+            color: #FFFFFF;
+            transform: translateX(8px);
         }
 
         .submenu-item:last-child {
@@ -101,18 +108,25 @@
 }
 
 .nested-submenu {
-    max-height: 0;
+ max-height: 0;
     overflow: hidden;
-    transition: all 1s ease;
+    opacity: 0;
+    padding: 0;
     background: rgba(76, 175, 80, 0.15);
     border-radius: 8px;
     margin: 8px 0;
-    padding-left: 15px;
     border-left: 2px solid rgba(76, 175, 80, 0.3);
-}
+    transition: all 1.3s;}
 
 .submenu-item.has-submenu:hover .nested-submenu {
+    max-height: 500px;
+    opacity: 1;
+    padding: 5px 0 5px 15px;
+}
+
+.submenu-item.has-submenu.active .nested-submenu {
     max-height: 200px;
+    opacity: 1;
     padding: 5px 0 5px 15px;
 }
 
@@ -218,10 +232,12 @@
             text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.2);
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 1.3s ease;
         }
 
         .bottom-card:hover {
             background: rgba(76, 175, 80, 0.2);
-            transform: translateY(-3px);
+            transform: translateY(-10px);
         }
+
+    

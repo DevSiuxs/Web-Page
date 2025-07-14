@@ -7,15 +7,34 @@
     <title>Inicio - Preisa</title>
     <link rel="stylesheet" href="./styles/inicio.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
 </head>
 <body>
-    <nav>
-        <ul>
+    <nav class="custom-nav">
+        <div class="nav-wrapper">
+          <!-- Casa - Izquierda -->
+          <ul class="left-group">
             <li>
-                <img src="./assets/preisa.jpeg" alt="Logo Preisa">
+              <a href="../../home/home.html"><i class="material-icons">home</i></a>
             </li>
-        </ul>
-    </nav>
+          </ul>
+          
+          <!-- Logo en el centro -->
+          <div class="center-group">
+            <img src="./assets/preisa.jpeg" alt="Logo Preisa" class="nav-logo">
+          </div>
+          
+          <!-- Notificaciones - Derecha -->
+          <ul class="right-group">
+            <li>
+              <a href="#!"><i class="material-icons">notifications</i></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
     <main>
         <div class="dashboard-grid">
             <!-- Fila 1 -->

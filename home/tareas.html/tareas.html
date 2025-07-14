@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tareas</title>
+    <link rel="stylesheet" href="tareas.css">
+    <link rel="icon" href="../../Assets/icons/Uranus.ico" type="image/x-icon">
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+</head>
+<body>
+    <nav class="custom-nav">
+        <div class="nav-wrapper">
+          <ul class="left-group">
+            <li>
+              <a href="../../home/home.html"><i class="material-icons">home</i></a>
+            </li>
+            <li><p class="text_name">Juan Jaime</p><b class="text_info">Admin</b></li>
+            
+          </ul>
+          <ul class="right-group">
+            <li>
+              <a href="#!"><i class="material-icons">notifications</i></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Seccion Principal -->
+
+      <main>
+        <h1>Asignación de Tareas</h1>
+        
+        <div class="user-search-container">
+            <label for="user-search">Asignar a:</label>
+            <input type="text" id="user-search" placeholder="Buscar usuario...">
+            <div class="user-results" id="user-results"></div>
+        </div>
+        
+        <div class="module">
+            <div class="module-header">
+                <div class="module-title">
+                    <input type="checkbox" id="admin-module">
+                    <label for="admin-module">ADMINISTRACIÓN</label>
+                </div>
+            </div>
+            
+            <!-- RH - Acordeón -->
+            <div class="submodule">
+                <div class="submodule-header" onclick="toggleSection('rh-tasks', 'rh-icon')">
+                    <div class="submodule-title">
+                        <input type="checkbox" id="rh-submodule">
+                        <label for="rh-submodule">RH</label>
+                    </div>
+                    <i class="fas fa-chevron-down accordion-icon" id="rh-icon"></i>
+                </div>
+                <div class="tasks" id="rh-tasks">
+                    <div class="task">
+                        <div class="task-name">
+                            <input type="checkbox" id="rh-task1">
+                            <label for="rh-task1">Vacaciones</label>
+                        </div>
+                    </div>
+                    <div class="task">
+                        <div class="task-name">
+                            <input type="checkbox" id="rh-task2">
+                            <label for="rh-task2">Expedientes</label>
+                        </div>
+                    </div>
+                    <div class="task">
+                        <div class="task-name">
+                            <input type="checkbox" id="rh-task3">
+                            <label for="rh-task3">Eventos</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- TECNOLOGÍA - Acordeón -->
+            <div class="submodule">
+                <div class="submodule-header" onclick="toggleSection('tech-tasks', 'tech-icon')">
+                    <div class="submodule-title">
+                        <input type="checkbox" id="tech-submodule">
+                        <label for="tech-submodule">TECNOLOGÍA</label>
+                    </div>
+                    <i class="fas fa-chevron-down accordion-icon" id="tech-icon"></i>
+                </div>
+                <div class="tasks" id="tech-tasks">
+                    <div class="task">
+                        <div class="task-name">
+                            <input type="checkbox" id="tech-task1">
+                            <label for="tech-task1">Funeraria</label>
+                        </div>
+                    </div>
+                    <div class="task">
+                        <div class="task-name">
+                            <input type="checkbox" id="tech-task2">
+                            <label for="tech-task2">Desar/JA</label>
+                        </div>
+                    </div>
+                    <div class="task">
+                        <div class="task-name">
+                            <input type="checkbox" id="tech-task3">
+                            <label for="tech-task3">Soporte</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- JURÍDICO - Acordeón -->
+            <div class="submodule">
+                <div class="submodule-header" onclick="toggleSection('legal-tasks', 'legal-icon')">
+                    <div class="submodule-title">
+                        <input type="checkbox" id="legal-submodule">
+                        <label for="legal-submodule">JURÍDICO</label>
+                    </div>
+                    <i class="fas fa-chevron-down accordion-icon" id="legal-icon"></i>
+                </div>
+                <div class="tasks" id="legal-tasks">
+                    <div class="task">
+                        <div class="task-name">
+                            <input type="checkbox" id="legal-task1">
+                            <label for="legal-task1">Horno</label>
+                        </div>
+                    </div>
+                    <div class="task">
+                        <div class="task-name">
+                            <input type="checkbox" id="legal-task2">
+                            <label for="legal-task2">Representac</label>
+                        </div>
+                    </div>
+                    <div class="task">
+                        <div class="task-name">
+                            <input type="checkbox" id="legal-task3">
+                            <label for="legal-task3">Doc Legales</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- FINANZAS - Acordeón -->
+            <div class="submodule">
+                <div class="submodule-header" onclick="toggleSection('finance-tasks', 'finance-icon')">
+                    <div class="submodule-title">
+                        <input type="checkbox" id="finance-submodule">
+                        <label for="finance-submodule">FINANZAS</label>
+                    </div>
+                    <i class="fas fa-chevron-down accordion-icon" id="finance-icon"></i>
+                </div>
+                <div class="tasks" id="finance-tasks">
+                    <div class="task">
+                        <div class="task-name">
+                            <input type="checkbox" id="finance-task1">
+                            <label for="finance-task1">Compras</label>
+                        </div>
+                    </div>
+                    <div class="task">
+                        <div class="task-name">
+                            <input type="checkbox" id="finance-task2">
+                            <label for="finance-task2">Fondeois</label>
+                        </div>
+                    </div>
+                    <div class="task">
+                        <div class="task-name">
+                            <input type="checkbox" id="finance-task3">
+                            <label for="finance-task3">P. Prov Gastos</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Segundo modulo de actividades -->
+
+        <div class="module">
+            <div class="module-header">
+                <div class="module-title">
+                    <input type="checkbox" id="admin-module">
+                    <label for="admin-module">OPERACION</label>
+                </div>
+            </div>
+            
+            <!-- RH - Acordeón -->
+            <div class="submodule">
+                <div class="submodule-header" onclick="toggleSection('fu-tasks', 'fu-icon')">
+                    <div class="submodule-title">
+                        <input type="checkbox" id="rh-submodule">
+                        <label for="rh-submodule">FU</label>
+                    </div>
+                    <i class="fas fa-chevron-down accordion-icon" id="rh-icon"></i>
+                </div>
+                <div class="tasks" id="fu-tasks">
+                    <div class="task">
+                        <div class="task-name">
+                            <input type="checkbox" id="fu-task1">
+                            <label for="fu-task1">PPTO</label>
+                        </div>
+                    </div>
+                    <div class="task">
+                        <div class="task-name">
+                            <input type="checkbox" id="fu-task2">
+                            <label for="fu-task2">DOCUM</label>
+                        </div>
+                    </div>
+                    <div class="task">
+                        <div class="task-name">
+                            <input type="checkbox" id="fu-task3">
+                            <label for="fu-task3">PRECIOS</label>
+                        </div>
+                    </div>
+                    <div class="task">
+                        <div class="task-name">
+                            <input type="checkbox" id="fu-task4">
+                            <label for="fuS-task4">SUBIR SF</label>
+                        </div>
+                    </div>
+                    <div class="task">
+                        <div class="task-name">
+                            <input type="checkbox" id="fu-task5">
+                            <label for="fu-task5">SEMAFOROS</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="submodule">
+                <div class="submodule-header" onclick="toggleSection('uvaf-tasks', 'uvaf-icon')">
+                    <div class="submodule-title">
+                        <input type="checkbox" id="uvaf-submodule">
+                        <label for="uvaf-submodule">UVAF</label>
+                    </div>
+                    <i class="fas fa-chevron-down accordion-icon" id="uvaf-icon"></i>
+                </div>
+                <div class="tasks" id="uvaf-tasks">
+                    <div class="task">
+                        <div class="task-name">
+                            <input type="checkbox" id="uvaf-task1">
+                            <label for="rh-task1">PPTO</label>
+                        </div>
+                    </div>
+                    <div class="task">
+                        <div class="task-name">
+                            <input type="checkbox" id="uvaf-task2">
+                            <label for="uvaf-task2">DOCUM</label>
+                        </div>
+                    </div>
+                    <div class="task">
+                        <div class="task-name">
+                            <input type="checkbox" id="uvaf-task3">
+                            <label for="uvaf-task3">PRECIOS</label>
+                        </div>
+                    </div>
+                    <div class="task">
+                        <div class="task-name">
+                            <input type="checkbox" id="uvaf-task4">
+                            <label for="uvaf-task4">SUBIR SF</label>
+                        </div>
+                    </div>
+                    <div class="task">
+                        <div class="task-name">
+                            <input type="checkbox" id="uvaf-task5">
+                            <label for="uvaf-task5">SEMAFOROS</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="submodule">
+                <div class="submodule-header" onclick="toggleSection('ET-tasks', 'ET-icon')">
+                    <div class="submodule-title">
+                        <input type="checkbox" id="rh-submodule">
+                        <label for="rh-submodule">ETHERNUS</label>
+                    </div>
+                    <i class="fas fa-chevron-down accordion-icon" id="rh-icon"></i>
+                </div>
+                <div class="tasks" id="ET-tasks">
+                    <div class="task">
+                        <div class="task-name">
+                            <input type="checkbox" id="ET-task1">
+                            <label for="ET-task1">PPTO</label>
+                        </div>
+                    </div>
+                    <div class="task">
+                        <div class="task-name">
+                            <input type="checkbox" id="ET-task2">
+                            <label for="ET-task2">DOCUM</label>
+                        </div>
+                    </div>
+                    <div class="task">
+                        <div class="task-name">
+                            <input type="checkbox" id="ET-task3">
+                            <label for="ET-task3">PRECIOS</label>
+                        </div>
+                    </div>
+                    <div class="task">
+                        <div class="task-name">
+                            <input type="checkbox" id="ET-task4">
+                            <label for="ET-task4">SUBIR SF</label>
+                        </div>
+                    </div>
+                    <div class="task">
+                        <div class="task-name">
+                            <input type="checkbox" id="ET-tas5">
+                            <label for="ET-task5">SEMAFOROS</label>
+                        </div>
+                    </div>
+                </div> <!-- Cierra div.tasks para ET-tasks -->
+            </div>
+                
+                <!-- 3EROS - Submódulo dentro de ETHERNUS -->
+                <div class="submodule">
+                    <div class="submodule-header" onclick="toggleSection('terceros-tasks', 'terceros-icon')">
+                        <div class="submodule-title">
+                            <input type="checkbox" id="terceros-submodule">
+                            <label for="terceros-submodule">3EROS</label>
+                        </div>
+                        <i class="fas fa-chevron-down accordion-icon" id="terceros-icon"></i>
+                    </div>
+                    <div class="tasks" id="terceros-tasks">
+                        <div class="task">
+                            <div class="task-name">
+                                <input type="checkbox" id="terceros-task1">
+                                <label for="terceros-task1">CDMS</label>
+                            </div>
+                        </div>
+                        <div class="task">
+                            <div class="task-name">
+                                <input type="checkbox" id="terceros-task2">
+                                <label for="terceros-task2">B2</label>
+                            </div>
+                        </div>
+                        <div class="task">
+                            <div class="task-name">
+                                <input type="checkbox" id="terceros-task3">
+                                <label for="terceros-task3">FLORES</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                         <!-- PROCESOS - Submódulo -->
+    <div class="submodule">
+        <div class="submodule-header" onclick="toggleSection('procesos-tasks', 'procesos-icon')">
+            <div class="submodule-title">
+                <input type="checkbox" id="procesos-submodule">
+                <label for="procesos-submodule">PROCESOS</label>
+            </div>
+            <i class="fas fa-chevron-down accordion-icon" id="procesos-icon"></i>
+        </div>
+        <div class="tasks" id="procesos-tasks">
+            <!-- Aquí puedes agregar las tareas de PROCESOS -->
+        </div> <!-- Cierra div.tasks para procesos-tasks -->
+    </div> <!-- Cierra div.submodule para PROCESOS -->
+</div> <!-- Cierra div.submodule para ETHERNUS -->
+    </main>
+
+
+    <script>
+        // Datos de usuarios de ejemplo
+        const users = [
+            { id: 'user1', name: 'Usuario 1' },
+            { id: 'user2', name: 'Usuario 2' },
+            { id: 'user3', name: 'Usuario 3' },
+            { id: 'user4', name: 'Eduardo' },
+            { id: 'user4', name: 'Edson' },
+            { id: 'user4', name: 'Oscar' },
+        ];
+        
+        // Buscador de usuarios
+        document.getElementById('user-search').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const resultsContainer = document.getElementById('user-results');
+            
+            if (searchTerm.length === 0) {
+                resultsContainer.style.display = 'none';
+                return;
+            }
+            
+            const filteredUsers = users.filter(user => 
+                user.name.toLowerCase().includes(searchTerm)
+            );
+            
+            if (filteredUsers.length > 0) {
+                resultsContainer.innerHTML = filteredUsers.map(user => `
+                    <div class="user-result" data-user="${user.id}">${user.name}</div>
+                `).join('');
+                resultsContainer.style.display = 'block';
+                
+                // Asignar evento click a los resultados
+                document.querySelectorAll('.user-result').forEach(item => {
+                    item.addEventListener('click', function() {
+                        const userId = this.getAttribute('data-user');
+                        const userName = this.textContent;
+                        document.getElementById('user-search').value = userName;
+                        resultsContainer.style.display = 'none';
+                    });
+                });
+            } else {
+                resultsContainer.innerHTML = '<div class="user-result">No se encontraron usuarios</div>';
+                resultsContainer.style.display = 'block';
+            }
+        });
+        
+        // Ocultar resultados al hacer click fuera
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.user-search-container')) {
+                document.getElementById('user-results').style.display = 'none';
+            }
+        });
+        
+        // Función para alternar secciones (acordeón)
+        function toggleSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            const icon = document.getElementById(sectionId.replace('tasks', 'icon'));
+            
+            if (section.style.display === 'block') {
+                section.style.display = 'none';
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                section.style.display = 'block';
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+    </script>
+    
+</body>
+</html>

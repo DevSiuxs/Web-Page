@@ -28,9 +28,52 @@ nav ul li {
 }
 
 nav ul li img {
-    height: 100px;
+    height: 200px;
     width: auto;
 }
+.custom-nav {
+    background-color: rgba(200, 255, 200, 0.8); /* Manteniendo tu color verde claro */
+    padding: 15px 0;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .left-group, .right-group {
+    display: flex;
+  }
+  
+  .left-group {
+    justify-content: flex-start; /* Alinea a la izquierda */
+  }
+  
+  .right-group {
+    justify-content: flex-end; /* Alinea a la derecha */
+  }
+  
+  .center-group {
+    flex-grow: 1; /* Ocupa el espacio restante */
+    display: flex;
+    justify-content: center;
+  }
+  
+  .nav-logo {
+    height: 60px; /* Manteniendo tu tamaño original */
+    width: auto;
+  }
+  
+  .material-icons {
+    color: #333;
+    font-size: 24px;
+  }
 
 main {
     flex: 1;

@@ -102,11 +102,13 @@ main {
     border-radius: 5px;
     font-size: 1.1rem;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.8s;
+    text-decoration: none !important;
 }
 
 .submit-btn:hover {
     background-color: #45a049;
+    text-decoration: none;
 }
 
 @media (max-width: 500px) {

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Admin - Asignación de Tareas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .user-info {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .user-info .name {
+            font-weight: bold;
+        }
+        
+        .user-info .role {
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        main {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .assign-section {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            align-items: center;
+        }
+        
+        select {
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: white;
+        }
+        
+        .module {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .module-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .module-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        
+        .submodules {
+            margin-top: 1rem;
+            margin-left: 1rem;
+        }
+        
+        .submodule {
+            margin-bottom: 1.5rem;
+        }
+        
+        .submodule-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .submodule-title {
+            font-weight: 600;
+        }
+        
+        .tasks {
+            margin-left: 1.5rem;
+        }
+        
+        .task {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        .task:last-child {
+            border-bottom: none;
+        }
+        
+        .task-name {
+            flex-grow: 1;
+        }
+        
+        .assign-select {
+            margin-left: 1rem;
+            min-width: 150px;
+        }
+        
+        input[type="checkbox"] {
+            margin-right: 0.5rem;
+        }
+        
+        h1 {
+            margin-bottom: 2rem;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-left">
+            <i class="fas fa-home"></i>
+            <div class="user-info">
+                <span class="name">Nombre</span>
+                <span class="role">Admin</span>
+            </div>
+        </div>
+        <div class="nav-right">
+            <i class="fas fa-bell"></i>
+        </div>
+    </nav>
+    
+    <main>
+        <h1>Asignación de Tareas</h1>
+        
+        <div class="assign-section">
+            <div>
+                <label for="user-select">Asignar a:</label>
+                <select id="user-select">
+                    <option value="">Seleccionar usuario</option>
+                    <option value="user1">Usuario 1</option>
+                    <option value="user2">Usuario 2</option>
+                    <option value="user3">Usuario 3</option>
+                    <option value="user4">Usuario 4</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="module">
+            <div class="module-header">
+                <div class="module-title">
+                    <input type="checkbox" id="admin-module">
+                    <label for="admin-module">ADMINISTRACIÓN</label>
+                </div>
+            </div>
+            
+            <div class="submodules">
+                <!-- RH -->
+                <div class="submodule">
+                    <div class="submodule-header">
+                        <div class="submodule-title">
+                            <input type="checkbox" id="rh-submodule">
+                            <label for="rh-submodule">RH</label>
+                        </div>
+                    </div>
+                    <div class="tasks">
+                        <div class="task">
+                            <div class="task-name">
+                                <input type="checkbox" id="rh-task1">
+                                <label for="rh-task1">Vacaciones</label>
+                            </div>
+                            <select class="assign-select">
+                                <option value="">Asignar</option>
+                                <option value="user1">Usuario 1</option>
+                                <option value="user2">Usuario 2</option>
+                            </select>
+                        </div>
+                        <div class="task">
+                            <div class="task-name">
+                                <input type="checkbox" id="rh-task2">
+                                <label for="rh-task2">Expedientes</label>
+                            </div>
+                            <select class="assign-select">
+                                <option value="">Asignar</option>
+                                <option value="user1">Usuario 1</option>
+                                <option value="user2">Usuario 2</option>
+                            </select>
+                        </div>
+                        <div class="task">
+                            <div class="task-name">
+                                <input type="checkbox" id="rh-task3">
+                                <label for="rh-task3">Eventos</label>
+                            </div>
+                            <select class="assign-select">
+                                <option value="">Asignar</option>
+                                <option value="user1">Usuario 1</option>
+                                <option value="user2">Usuario 2</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tecnología -->
+                <div class="submodule">
+                    <div class="submodule-header">
+                        <div class="submodule-title">
+                            <input type="checkbox" id="tech-submodule">
+                            <label for="tech-submodule">TECNOLOGÍA</label>
+                        </div>
+                    </div>
+                    <div class="tasks">
+                        <div class="task">
+                            <div class="task-name">
+                                <input type="checkbox" id="tech-task1">
+                                <label for="tech-task1">Funeraria</label>
+                            </div>
+                            <select class="assign-select">
+                                <option value="">Asignar</option>
+                                <option value="user1">Usuario 1</option>
+                                <option value="user2">Usuario 2</option>
+                            </select>
+                        </div>
+                        <div class="task">
+                            <div class="task-name">
+                                <input type="checkbox" id="tech-task2">
+                                <label for="tech-task2">Desar/JA</label>
+                            </div>
+                            <select class="assign-select">
+                                <option value="">Asignar</option>
+                                <option value="user1">Usuario 1</option>
+                                <option value="user2">Usuario 2</option>
+                            </select>
+                        </div>
+                        <div class="task">
+                            <div class="task-name">
+                                <input type="checkbox" id="tech-task3">
+                                <label for="tech-task3">Soporte</label>
+                            </div>
+                            <select class="assign-select">
+                                <option value="">Asignar</option>
+                                <option value="user1">Usuario 1</option>
+                                <option value="user2">Usuario 2</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Jurídico -->
+                <div class="submodule">
+                    <div class="submodule-header">
+                        <div class="submodule-title">
+                            <input type="checkbox" id="legal-submodule">
+                            <label for="legal-submodule">JURÍDICO</label>
+                        </div>
+                    </div>
+                    <div class="tasks">
+                        <div class="task">
+                            <div class="task-name">
+                                <input type="checkbox" id="legal-task1">
+                                <label for="legal-task1">Representación</label>
+                            </div>
+                            <select class="assign-select">
+                                <option value="">Asignar</option>
+                                <option value="user1">Usuario 1</option>
+                                <option value="user2">Usuario 2</option>
+                            </select>
+                        </div>
+                        <div class="task">
+                            <div class="task-name">
+                                <input type="checkbox" id="legal-task2">
+                                <label for="legal-task2">Doc Legales</label>
+                            </div>
+                            <select class="assign-select">
+                                <option value="">Asignar</option>
+                                <option value="user1">Usuario 1</option>
+                                <option value="user2">Usuario 2</option>
+                            </select>
+                        </div>
+                        <div class="task">
+                            <div class="task-name">
+                                <input type="checkbox" id="legal-task3">
+                                <label for="legal-task3">Horno</label>
+                            </div>
+                            <select class="assign-select">
+                                <option value="">Asignar</option>
+                                <option value="user1">Usuario 1</option>
+                                <option value="user2">Usuario 2</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Finanzas -->
+                <div class="submodule">
+                    <div class="submodule-header">
+                        <div class="submodule-title">
+                            <input type="checkbox" id="finance-submodule">
+                            <label for="finance-submodule">FINANZAS</label>
+                        </div>
+                    </div>
+                    <div class="tasks">
+                        <div class="task">
+                            <div class="task-name">
+                                <input type="checkbox" id="finance-task1">
+                                <label for="finance-task1">Compras</label>
+                            </div>
+                            <select class="assign-select">
+                                <option value="">Asignar</option>
+                                <option value="user1">Usuario 1</option>
+                                <option value="user2">Usuario 2</option>
+                            </select>
+                        </div>
+                        <div class="task">
+                            <div class="task-name">
+                                <input type="checkbox" id="finance-task2">
+                                <label for="finance-task2">Fondos P.</label>
+                            </div>
+                            <select class="assign-select">
+                                <option value="">Asignar</option>
+                                <option value="user1">Usuario 1</option>
+                                <option value="user2">Usuario 2</option>
+                            </select>
+                        </div>
+                        <div class="task">
+                            <div class="task-name">
+                                <input type="checkbox" id="finance-task3">
+                                <label for="finance-task3">Prov Gastos</label>
+                            </div>
+                            <select class="assign-select">
+                                <option value="">Asignar</option>
+                                <option value="user1">Usuario 1</option>
+                                <option value="user2">Usuario 2</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

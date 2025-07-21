@@ -20,6 +20,34 @@
       display: block;
       margin-left: 1em;
     }
+    .user-search-container {
+      margin-bottom: 2em;
+    }
+    .user-results {
+      display: none;
+      border: 1px solid #ddd;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+    .user-result {
+      padding: 8px;
+      cursor: pointer;
+    }
+    .user-result:hover {
+      background-color: #f0f0f0;
+    }
+    .save-button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .save-button:hover {
+      background-color: #45a049;
+    }
   </style>
 </head>
 <body>
@@ -42,6 +70,7 @@
       <label for="user-search">Asignar a:</label>
       <input type="text" id="user-search" placeholder="Buscar usuario...">
       <div class="user-results" id="user-results"></div>
+      <button id="save-tasks" class="save-button">Guardar Tareas</button>
     </div>
 
     <!-- Módulo ADMINISTRACIÓN -->
@@ -111,6 +140,127 @@
         <!-- Añade tareas si hay -->
       </details>
     </section>
+
+    <!-- Módulo VENTAS (Nuevo) -->
+    <section>
+      <h2>VENTAS</h2>
+      <details>
+        <summary><input type="checkbox"> Documentos</summary>
+        <label><input type="checkbox"> SOL V&F</label>
+        <label><input type="checkbox"> Cuentas SAF&PA</label>
+        <label><input type="checkbox"> Cotizaciones</label>
+      </details>
+      <details>
+        <summary><input type="checkbox"> Lista de Precios</summary>
+        <!-- Tareas específicas si las hay -->
+      </details>
+      <details>
+        <summary><input type="checkbox"> Convenios</summary>
+        <!-- Tareas específicas si las hay -->
+      </details>
+      <details>
+        <summary><input type="checkbox"> Expediente</summary>
+        <label><input type="checkbox"> DATOS</label>
+        <label><input type="checkbox"> Estado de cuenta</label>
+        <label><input type="checkbox"> SF PROP</label>
+      </details>
+      <details>
+        <summary><input type="checkbox"> APV</summary>
+        <label><input type="checkbox"> DATOS</label>
+        <label><input type="checkbox"> Cuenta</label>
+        <label><input type="checkbox"> Comisiones</label>
+      </details>
+    </section>
+
+    <!-- Módulo COBRANZA (Nuevo) -->
+    <section>
+      <h2>COBRANZA</h2>
+      <details>
+        <summary><input type="checkbox"> Agenda</summary>
+        <!-- Tareas específicas si las hay -->
+      </details>
+      <details>
+        <summary><input type="checkbox"> Cobrar</summary>
+        <!-- Tareas específicas si las hay -->
+      </details>
+      <details>
+        <summary><input type="checkbox"> Semáforo</summary>
+        <!-- Tareas específicas si las hay -->
+      </details>
+      <details>
+        <summary><input type="checkbox"> S. Pagos</summary>
+        <!-- Tareas específicas si las hay -->
+      </details>
+      <details>
+        <summary><input type="checkbox"> Auditoría</summary>
+        <!-- Tareas específicas si las hay -->
+      </details>
+    </section>
+
+    <!-- Módulo CLIENTES (Nuevo) -->
+    <section>
+      <h2>CLIENTES</h2>
+      <details>
+        <summary><input type="checkbox"> TEC.FUN</summary>
+        <label><input type="checkbox"> OBITUR</label>
+        <label><input type="checkbox"> Línea de Tiempo</label>
+        <label><input type="checkbox"> Lista de condolencias</label>
+      </details>
+      <details>
+        <summary><input type="checkbox"> Estado de cuentas</summary>
+        <label><input type="checkbox"> Pago</label>
+        <label><input type="checkbox"> Estado de cuenta</label>
+      </details>
+      <details>
+        <summary><input type="checkbox"> Documentos</summary>
+        <label><input type="checkbox"> Cuentas</label>
+        <label><input type="checkbox"> Documentos SF</label>
+      </details>
+      <details>
+        <summary><input type="checkbox"> Solicita SF</summary>
+        <!-- Tareas específicas si las hay -->
+      </details>
+      <details>
+        <summary><input type="checkbox"> Compras</summary>
+        <label><input type="checkbox"> Cafetería</label>
+        <label><input type="checkbox"> Florería</label>
+        <label><input type="checkbox"> Mejoras</label>
+      </details>
+    </section>
+
+    <!-- Módulo MANTENIMIENTO (Nuevo) -->
+    <section>
+      <h2>MANTENIMIENTO</h2>
+      <details>
+        <summary><input type="checkbox"> Vehículos</summary>
+        <!-- Tareas específicas si las hay -->
+      </details>
+      <details>
+        <summary><input type="checkbox"> Instalaciones</summary>
+        <!-- Tareas específicas si las hay -->
+      </details>
+      <details>
+        <summary><input type="checkbox"> Almacén</summary>
+        <!-- Tareas específicas si las hay -->
+      </details>
+    </section>
+
+    <!-- Módulo MANUFACTURA (Nuevo) -->
+    <section>
+      <h2>MANUFACTURA</h2>
+      <details>
+        <summary><input type="checkbox"> Cafetería</summary>
+        <!-- Tareas específicas si las hay -->
+      </details>
+      <details>
+        <summary><input type="checkbox"> Florería</summary>
+        <!-- Tareas específicas si las hay -->
+      </details>
+      <details>
+        <summary><input type="checkbox"> Comedor</summary>
+        <!-- Tareas específicas si las hay -->
+      </details>
+    </section>
   </main>
 
   <script>
@@ -158,6 +308,45 @@
       if (!e.target.closest('.user-search-container')) {
         document.getElementById('user-results').style.display = 'none';
       }
+    });
+
+    document.getElementById('save-tasks').addEventListener('click', function() {
+      const selectedUser = document.getElementById('user-search').value;
+      if (!selectedUser) {
+        alert('Por favor, selecciona un usuario antes de guardar.');
+        return;
+      }
+
+      const selectedTasks = [];
+      document.querySelectorAll('input[type="checkbox"]:checked').forEach(checkbox => {
+        // Obtener la jerarquía de la tarea
+        let taskName = '';
+        let currentElement = checkbox;
+        
+        while (currentElement) {
+          if (currentElement.tagName === 'SUMMARY') {
+            taskName = currentElement.textContent.trim() + (taskName ? ' > ' + taskName : '');
+          } else if (currentElement.tagName === 'LABEL') {
+            taskName = currentElement.textContent.trim() + (taskName ? ' > ' + taskName : '');
+          }
+          
+          if (currentElement.parentElement.tagName === 'DETAILS') {
+            currentElement = currentElement.parentElement.querySelector('summary');
+          } else {
+            currentElement = null;
+          }
+        }
+        
+        selectedTasks.push(taskName);
+      });
+
+      if (selectedTasks.length === 0) {
+        alert('Por favor, selecciona al menos una tarea.');
+        return;
+      }
+
+      alert(`Tareas asignadas a ${selectedUser}:\n${selectedTasks.join('\n')}`);
+      // Aquí podrías enviar los datos a un servidor si es necesario
     });
   </script>
 </body>
